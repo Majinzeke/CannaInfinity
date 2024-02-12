@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CannaInfinity.MySplash" parent="Theme.CannaInfinity">
+        <item name="android:windowSplashScreenBackground">#FBFCFF</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_android_black_24dp_splash_screen</item>
+        <item name="postSplashScreenTheme">@drawable/ic_android_black_24dp_splash_screen</item>
+    </style>
+</resources>
