@@ -1,5 +1,6 @@
 package com.mz.cannainfinity.navigation
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -11,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.mz.cannainfinity.presentation.screens.auth.AuthenticationScreen
 import com.mz.cannainfinity.presentation.screens.auth.AuthenticationViewModel
+import com.mz.cannainfinity.presentation.screens.home.HomeScreen
 import com.mz.cannainfinity.util.Constants.WRITE_SCREEN_ARGUMENT_KEY
 import com.stevdzasan.messagebar.rememberMessageBarState
 import com.stevdzasan.onetap.rememberOneTapSignInState
@@ -23,7 +25,9 @@ fun SetupNavGraph(startDestination: String, navController: NavHostController) {
         startDestination = startDestination
     ) {
         authenticationRoute()
-        homeRoute()
+        homeRoute(navigateToWrite = {
+            navController.navigate(Screen.Write.route)
+        })
         writeRoute()
     }
 }
@@ -65,9 +69,14 @@ fun NavGraphBuilder.authenticationRoute() {
     }
 }
 
-fun NavGraphBuilder.homeRoute() {
+fun NavGraphBuilder.homeRoute(
+    navigateToWrite: () -> Unit
+) {
     composable(route = Screen.Home.route) {
-
+        HomeScreen(
+            onMenuClicked = { /*TODO*/ },
+            navigateToWrite = navigateToWrite
+        )
     }
 }
 
