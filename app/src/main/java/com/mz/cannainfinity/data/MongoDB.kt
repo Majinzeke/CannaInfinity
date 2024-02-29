@@ -3,16 +3,14 @@ package com.mz.cannainfinity.data
 import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.room.util.query
-import com.google.firebase.firestore.auth.User
 import com.mz.cannainfinity.model.CannaLogEntry
 import com.mz.cannainfinity.model.RequestState
 import com.mz.cannainfinity.presentation.components.toInstant
 import com.mz.cannainfinity.util.Constants.APP_ID
 import io.realm.kotlin.Realm
 import io.realm.kotlin.ext.query
-import io.realm.kotlin.mongodb.App
 import io.realm.kotlin.log.LogLevel
+import io.realm.kotlin.mongodb.App
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.query.Sort
 import kotlinx.coroutines.flow.Flow

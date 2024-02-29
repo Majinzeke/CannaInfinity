@@ -1,5 +1,6 @@
 package com.mz.cannainfinity
 
+
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,14 +13,15 @@ import com.mz.cannainfinity.navigation.Screen
 import com.mz.cannainfinity.navigation.SetupNavGraph
 import com.mz.cannainfinity.ui.theme.CannaInfinityTheme
 import com.mz.cannainfinity.util.Constants.APP_ID
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import io.realm.kotlin.mongodb.App
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-        MongoDB.configureTheRealm()
         setContent {
             CannaInfinityTheme {
                 // A surface container using the 'background' color from the theme

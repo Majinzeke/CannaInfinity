@@ -2,6 +2,8 @@ package com.mz.cannainfinity.navigation
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberDrawerState
@@ -104,7 +106,7 @@ fun NavGraphBuilder.homeRoute(
     navigateToWrite: () -> Unit
 ) {
     composable(route = Screen.Home.route) {
-        val viewModel: HomeViewModel = viewModel()
+        val viewModel: HomeViewModel = hiltViewModel()
         val entries by viewModel.entries
         val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
         val scope = rememberCoroutineScope()

@@ -9,10 +9,15 @@ import androidx.lifecycle.viewModelScope
 import com.mz.cannainfinity.data.Entries
 import com.mz.cannainfinity.data.MongoDB
 import com.mz.cannainfinity.model.RequestState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@HiltViewModel
 @RequiresApi(Build.VERSION_CODES.O)
-class HomeViewModel : ViewModel() {
+class HomeViewModel @Inject constructor(
+
+) : ViewModel() {
 
     var entries: MutableState<Entries> = mutableStateOf(RequestState.Idle)
 
