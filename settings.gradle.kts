@@ -1,3 +1,4 @@
+
 pluginManagement {
     repositories {
         google()
@@ -5,6 +6,9 @@ pluginManagement {
         gradlePluginPortal()
 
     }
+
+
+
 }
 
 
@@ -18,8 +22,11 @@ dependencyResolutionManagement {
             url = uri("https://jitpack.io")
         }
 
+
     }
+
 }
+
 
 rootProject.name = "CannaInfinity"
 include(":app")

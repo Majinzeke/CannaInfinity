@@ -5,8 +5,6 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("io.realm.kotlin")
 
-    id ("kotlin-kapt")
-    id ("dagger.hilt.android.plugin")
 
 
 }
@@ -62,6 +60,7 @@ android {
 
 dependencies {
 
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
@@ -81,7 +80,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation ("com.google.dagger:hilt-android:2.49")
-    kapt  ("com.google.dagger:hilt-compiler:2.48")
+    ksp ("com.google.dagger:hilt-compiler:2.48")
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Compose Navigation
