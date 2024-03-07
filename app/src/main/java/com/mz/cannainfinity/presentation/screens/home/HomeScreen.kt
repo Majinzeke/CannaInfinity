@@ -50,7 +50,8 @@ fun HomeScreen(
     onMenuClicked: () -> Unit,
     navigateToWrite: () -> Unit,
     drawerState: DrawerState,
-    onSignedOutClicked: () -> Unit
+    onSignedOutClicked: () -> Unit,
+    navigateToWriteWithArgs: (String) -> Unit
 ) {
     var padding by remember { mutableStateOf(PaddingValues()) }
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -80,10 +81,7 @@ fun HomeScreen(
                     HomeScreenContent(
                         cannaEntries = entries.data,
                         paddingValues = it,
-                        onClick = {
-
-                        }
-
+                        onClick = navigateToWriteWithArgs
                     )
                 }
 

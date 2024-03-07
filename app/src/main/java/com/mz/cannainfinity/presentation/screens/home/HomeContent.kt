@@ -1,18 +1,15 @@
 package com.mz.cannainfinity.presentation.screens.home
 
+import CannaHolder
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -25,10 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.mz.cannainfinity.model.CannaLogEntry
-import com.mz.cannainfinity.presentation.components.CannaEntryHolder
 import java.time.LocalDate
 
 
@@ -40,15 +35,13 @@ fun HomeScreenContent(
     cannaEntries: Map<LocalDate, List<CannaLogEntry>>,
     onClick: (String) -> Unit,
 
-    ) = if (cannaEntries.isNotEmpty()) {
+    ) {
+    if (cannaEntries.isNotEmpty()) {
         LazyColumn(
             modifier = Modifier
                 .padding(horizontal = 24.dp)
-                ///.navigationBarsPadding()
+                .navigationBarsPadding()
                 .padding(top = paddingValues.calculateTopPadding())
-                ///.padding(bottom = paddingValues.calculateBottomPadding())
-                ///.padding(start = paddingValues.calculateStartPadding(LayoutDirection.Ltr))
-                ///.padding(end = paddingValues.calculateEndPadding(LayoutDirection.Ltr))
         ) {
             cannaEntries.forEach { (localDate, entries) ->
                 stickyHeader(key = localDate) {
@@ -58,7 +51,7 @@ fun HomeScreenContent(
                     items = entries,
                     key = { it._id.toString() }
                 ) {
-                    CannaEntryHolder(cannaEntries = it, onClick = onClick)
+                    CannaHolder(cannaLogEntry = it, onClick = onClick)
                 }
             }
         }
@@ -66,6 +59,7 @@ fun HomeScreenContent(
         EmptyPage()
     }
 
+}
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
